@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+/*
+
+Original Author: Warren Moreno
+Date Created: August 22nd, 2019
+Version: LiveVersion0.1
+Date Last Modified: September 12th, 2019
+Modified by: Warren Moreno
+Modification log: 
+Filename: visual_style2.css
+
+*/
+
+
+/* =========================
+   Mobile Styles: 0 to 480px 
+   =========================
+*/
+
+a#navicon {
+	display: none;
+}
+
+
+@media only screen and (max-width: 480px) {
+
+
+/* Navicon Style */
+
+   a#navicon {
+	   display: block;
+   }
+   
+   nav.horizontal ul {
+	   display: none;
+	   
+   }
+   
+   a#navicon:hover+ul, nav.horizontal ul:hover {
+	   display: block;
+   }
+   
+   
+
+
+
+/* Figure Box Style */
+
+figure#figure1 {
+	transform: perspective(0px) rotateX(0deg);
+	min-width: 80%;
+	margin-bottom: 0px;
+}
+
+/* Figure Image Style */
+
+figure.aboutImage {
+	width: 80%;
+	
+}
+
+/* HTML Style */
+
+html {
+	background-image: url(../images/demented_logo.png);
+	background-repeat: repeat-y;
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+}
+
+
+/*Nav Style */
+
+nav {
+	padding-left: 0px;
+	padding-right: 0px; 
+}
+
+ul {
+	list-style-type: none;
+	margin: 0%;
+	margin-top: 0%;
+	padding: 0%;
+	overflow: hidden;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	border-radius: 0px;
+	font-family: Rye-Regular, Arial, serif;
+	font-weight: bold;
+	font-size: 1.2em;
+	min-width: 305px;
+}
+
+li {
+	float: none;
+
+}
+
+li a {
+	background: none;
+	border-radius: 0px;
+	
+	display: block;
+	color: yellow;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a.active {
+	background: radial-gradient( rgb(146, 39, 36), rgb(102, 35, 33));
+	color: white;
+	box-sizing: border-box;
+	border-radius: 0px;
+}
+
+li a:hover:not(.active) {
+	background: linear-gradient(to left, orange, rgb(181, 111, 13), rgb(123, 110, 33));
+	border-radius: 0px;
+	color: gray;
+}
+
+
+/* Article Style */
+
+article {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+
+
+/* Events Section Style */
+
+section#main {
+	float: left;
+	width: 100%;
+}
+
+
+
+/* Event Table Styles */
+
+
+
+table, tbody, tr, td, th {
+	display: block;
+}
+
+thead, tfoot, caption {
+	display: none;
+}
+
+ tbody td{
+	position: relative;
+	padding-left: 40%;
+}
+
+td::before {
+	content: attr(data-label);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 5px;
+	width: 100%;
+}
+th {
+	background-color: rgb(154, 20, 154);
+}
+
+/* About Table Styles */
+
+table.storeHours, table.storeHours thead, table.storeHours tbody, 
+table.storeHours th, table.storeHours td, table.storeHours tr {
+	display: block;
+}
+
+table.storeHours thead, table.storeHours tfoot {
+	display: none;
+}
+
+table.storeHours thead tr {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+table.storeHours tr {
+	border: 1px solid #ccc;
+	background: #eee;
+}
+
+table.storeHours td { 
+	/* Behave  like a "row" */
+	border: none;
+	border-bottom: 1px solid #eee; 
+	position: relative;
+	padding-left: 50%; 
+}
+	
+table.storeHours td:before { 
+/* Now like a table header */
+	position: absolute;
+	
+/* Top/left values mimic padding */
+	top: 6px;
+	left: 6px;
+	width: 45%; 
+	padding-right: 10px; 
+	white-space: nowrap;
+}
+
+/*Feedback style*/
+
+textarea {
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 100px;
+	width: 80%;
+}
+
+/* Error Style*/
+
+div > img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	border-radius: 50%;
+}
+
+
+}/*@media end*/
+
+
+

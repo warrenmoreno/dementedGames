@@ -1,0 +1,283 @@
+@charset "utf-8";
+
+/*
+
+Original Author: Warren Moreno
+Date Created: August 23th, 2019
+Version: LiveVersion0.1
+Date Last Modified: September 12th, 2019
+Modified by: Warren Moreno
+Modification log: 
+Filename: visual_feedback.css
+
+*/
+
+@font-face{ 
+	font-family: Rye;
+	src: url('../fonts/Rye/Rye-Regular.ttf') format('truetype');
+}
+
+
+
+/* HTML Style */
+
+html {
+	background-image: url(../images/demented_logo.png);
+}
+
+h1 {
+	font-family: Rye, Arial, serif;
+	text-align: center;
+	text-shadow: rgb(221, 227, 168) /*gray*/ -4px -6px 5px;
+	color: rgb(143, 21, 42);
+	outline: solid;
+	background-color: /*gray*/ rgba(128, 128, 128, 0.9);
+	padding: 15px;
+	margin: 50px 50px 50px 50px;
+	
+}
+
+
+p {
+	font-family: Rye, "Comic Sans MS", sanserif;
+	text-align: center;
+}
+
+
+
+/* Footer Style */
+
+footer {
+	text-align: center;
+	display: block;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	padding: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	margin-left: 20%;
+	margin-right: 20%;
+	color: black;
+}
+
+footer a:link {
+	color: green;
+}
+footer a:visted {
+	color: blue;
+}
+footer a:hover {
+	text-decoration: none;
+	color: white;
+}
+footer a:active {
+	color: black;
+}
+
+/*Nav Style */
+
+nav {
+	position: relative;
+	padding-left: 50px;
+	padding-right: 50px; 
+}
+
+
+ul {
+	list-style-type: none;
+	margin: 2%;
+	margin-top: 0.5%;
+	padding: 20px;
+	overflow: hidden;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	border-radius: 50px;
+	font-weight: bold;
+	font-size: 1.2em;
+	max-width: 760px;
+	min-width: 440px;
+	display: block;
+	
+}
+
+li {
+	float: left;
+	position: relative;
+	
+
+}
+
+li a {
+	
+	background: linear-gradient(to right, skyblue, rgb(3, 96, 150), rgb(3, 59, 92));
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+	display: block;
+	color: yellow;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a.active {
+    
+	background: radial-gradient( rgb(146, 39, 36), rgb(102, 35, 33));
+	color: white;
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+}
+
+li a:hover:not(.active) {
+	background: linear-gradient(to left, orange, rgb(181, 111, 13), rgb(123, 110, 33));
+	box-sizing: border-box;
+	border-radius: 50px;
+	color: black;
+}
+
+
+/******************************************************/
+
+/* Flex Layout */
+
+form#feedBack {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	
+	font-family: Rye, "Comic Sans MS", sanserif;
+}
+
+/* Section */
+
+section {
+	background-image: url(../images/creepygrunge.png);
+	border: 10px groove rgb(122, 11, 46);
+	background-position: center;
+	background-size: cover;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 20px;
+}
+
+/* Fieldset Style*/
+
+form#feedBack > fieldset {
+	background-image: url(../images/ace_card.png);
+	background-position: center;
+	background-size: cover;
+	border-radius: 30px;
+	-webkit-flex: 1 1 300px;
+	flex: 1 1 300px;
+	font-size: 0.85em;
+	padding: 10px;
+	margin: 10px;
+	color: rgb(51, 189, 101);
+}
+
+
+div.formRow {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	margin: 7px 0px;
+}
+
+div.formRow > * {
+	-webkit-flex: 1 1 150px;
+	flex: 1 1 150px;
+}
+
+div.formRow label, fieldset label {
+	background-color: rgb(98, 15, 153);
+	color: white;
+	padding: 2px;
+	border-radius: 5px
+}
+
+
+/* Legend Styles */
+
+legend {
+	background-color: rgb(179, 20, 25);
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+fieldset p {
+	text-align: left;
+}
+
+/* Text Box Style */
+
+textarea {
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 100px;
+	width: 55%;
+}
+
+/*Validation Styles*/
+
+input#gamerName:focus:valid,
+input#gamerPhone:focus:valid, 
+input#gamerEmail:focus:valid {
+	background: rgb(220, 255, 220) url(../images/dg_valid.png) bottom right/contain no-repeat;
+}
+
+input#gamerName:focus:invalid,
+input#gamerPhone:focus:invalid, 
+input#gamerEmail:focus:invalid {
+	background: rgb(225, 232, 233) url(../images/dg_invalid.png) bottom right/contain no-repeat;
+}
+
+/* Button Style*/
+
+div#buttons {
+	text-align: center;
+	width: 100%;
+}
+
+input[type='submit'], input[type='reset'] {
+	font-size: 1.1em;
+	padding: 5px;
+	margin: 15px;
+	border-radius: 50%;
+}
+
+input[type='submit']:hover, input[type='reset']:hover {
+	font-size: 2em;
+	padding: 5px;
+	margin: 15px;
+	border-radius: 50%;
+	box-shadow: rgb(138, 11, 17, 0.4) 0px 0px 20px 10px;
+	
+}
+
+input[type='submit']:focus, input[type='reset']:focus{
+	background-color: rgb(145, 22, 139);
+	color: white;
+}
+
+
+input:focus, select:focus, textarea:focus {
+	background-color: rgb(220, 255, 220);
+}
+
+/* Audio Video Style */
+
+audio, video {
+	
+	box-shadow: rgb(51, 51, 51) 8px 8px 15px;
+	display: block;
+	margin: 10px auto;
+	width: 90%;
+}
+
+audio {
+	background-color: gray;
+	border-radius: 50%;
+	padding: 2px;
+}
