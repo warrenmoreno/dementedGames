@@ -5,9 +5,9 @@
 Original Author: Warren Moreno
 Date Created: August 28th, 2019
 Version: LiveVersion0.1
-Date Last Modified: September 12th, 2019
+Date Last Modified: January 20th, 2020
 Modified by: Warren Moreno
-Modification log: 
+Modification log: added PHP Style CSS
 Filename: events_visual.css
 
 */
@@ -209,6 +209,58 @@ col.activitiesCol {
 	width: 12%
 }
 
+/* PHP Style */
+
+/*
+
+*/
+table.contacts {
+	background: black;
+	border: 5px outset rgb(245, 28, 96);
+	border-collapse: separate;
+	font-size: 1em;
+	
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-bottom: 2%;
+}
+
+table.contacts caption {
+	caption-side: bottom;
+	text-align: right;
+}
+
+table.contacts th, table.contacts td {
+	border: 2px solid brown;
+	text-align: center;
+	padding: 5px;
+}
+
+table.contacts tfoot {
+	background: purple;
+}
+
+table.contacts thead {
+	background-color: rgb(154, 20, 154);
+}
+
+col#firstCol {
+	background-color: darkgreen;
+	width: 16%;
+}
+
+col.activitiesCol {
+	background-color: grey;
+	width: 12%
+}
+
+aside#empID h2 {
+        text-shadow: rgb(121, 127, 168) -4px -6px 5px;
+        font-family: Rye, Arial, serif;
+	color: red;
+	text-align: left;
+        margin-left: 5%;
+}
 
 /* Container Style */
 
