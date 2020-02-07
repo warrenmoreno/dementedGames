@@ -5,9 +5,9 @@
 Original Author: Warren Moreno
 Date Created: August 23th, 2019
 Version: LiveVersion0.1
-Date Last Modified: September 12th, 2019
+Date Last Modified: February 07th, 2020
 Modified by: Warren Moreno
-Modification log: 
+Modification log: added fieldset for login, added div.loginRow
 Filename: visual_feedback.css
 
 */
@@ -175,6 +175,18 @@ form#feedBack > fieldset {
 	color: rgb(51, 189, 101);
 }
 
+form#loginScreen > fieldset {
+	background-image: url(../images/login_screen.png);
+	background-position: center;
+	background-size: cover;
+	border-radius: 30px;
+	-webkit-flex: 1 1 300px;
+	flex: 1 1 300px;
+	font-size: 0.85em;
+	padding: 10px;
+	margin: 10px;
+	color: rgb(51, 189, 101);
+}
 
 div.formRow {
 	display: -webkit-flex;
@@ -196,6 +208,16 @@ div.formRow label, fieldset label {
 	border-radius: 5px
 }
 
+div.loginRow label {
+        float: left;
+        margin-right: 20px;
+	background-color: rgb(98, 15, 153);
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+        max-width: 150px;
+        text-align: center;
+}
 
 /* Legend Styles */
 
@@ -252,7 +274,7 @@ input[type='submit']:hover, input[type='reset']:hover {
 	padding: 5px;
 	margin: 15px;
 	border-radius: 50%;
-	box-shadow: rgb(138, 11, 17, 0.4) 0px 0px 20px 10px;
+	box-shadow: rgba(138, 11, 17, 0.4) 0px 0px 20px 10px;
 	
 }
 

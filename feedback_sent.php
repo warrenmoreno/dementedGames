@@ -3,14 +3,14 @@
 Original Author: Warren Moreno
 Date Created: August 28th, 2019
 Version: LiveVersion0.1
-Date Last Modified: January 24, 2020
+Date Last Modified: February 7th, 2020
 Modified by: Warren Moreno
-Modification log: added php, modified completion message
+Modification log: removed else $dsn/$username/$password, required database.php & call to getDB()
 Filename: feedback_sent.php
 
 -->
 <?php
-
+    require('./model/database.php');
     $vistorName = filter_input(INPUT_POST, 'gamerName');
     $vistorEmail = filter_input(INPUT_POST, 'gamerEmail');
     $vistorPhone = filter_input(INPUT_POST, 'gamerPhone');
@@ -21,10 +21,7 @@ Filename: feedback_sent.php
      /*echo "Fields: " . $vistorName . $vistorEmail . $vistorPhone . 
        $vistorMsg . $operativeRating . $eventsListing;*/
     /*echo "EventsListing1: " . $eventsListing;*/
-    // Validate inputs
-    /*if ($vistorName == null || $vistorEmail == null || 
-            $vistorPhone == null || $vistorMsg == null || 
-            $operativeRating == null || $eventsListing == null) {*/
+    
     if ($eventsListing == 'yes'){
         $eventsListing = 1;
     } else {
@@ -33,18 +30,19 @@ Filename: feedback_sent.php
     
     /*echo "EventsListing2: " . $eventsListing;*/
     if ($vistorName == null || $vistorEmail == null) {
-        $error = "There's interference with the communication array. "
-                . "Check all data fields and attempt upload again.";
+        $error = "There's something wrong with you entry data. "
+                . "Check all data fields and attempt again.";
         /* include('error.php'); */
         echo "Form Data Error: " . $error; 
         exit();
         } else {
-            $dsn = 'mysql:host=localhost;dbname=dementeddesign';
-            $username = 'root';
-            $password = 'Pa$$w0rd';
+//            $dsn = 'mysql:host=localhost;dbname=dementeddesign';
+//            $username = 'root';
+//            $password = 'Pa$$w0rd';
 
             try {
-                $db = new PDO($dsn, $username, $password);
+//                $db = new PDO($dsn, $username, $password);
+                $db = Database::getDB(); //function 1
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
@@ -118,7 +116,8 @@ Filename: feedback_sent.php
             <li><a href="index.html">Home</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="about_us.html">About Us</a></li>
-			<li><a href="feedback.html">Feedback</a></li>	
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
 		

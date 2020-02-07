@@ -7,7 +7,8 @@ Date Created: August 28th, 2019
 Version: LiveVersion0.1
 Date Last Modified: January 20th, 2020
 Modified by: Warren Moreno
-Modification log: added PHP Style CSS
+Modification log 1-20-2020: added PHP Style CSS
+Modification log 2-7-2020: added Employee style 
 Filename: events_visual.css
 
 */
@@ -211,9 +212,6 @@ col.activitiesCol {
 
 /* PHP Style */
 
-/*
-
-*/
 table.contacts {
 	background: black;
 	border: 5px outset rgb(245, 28, 96);
@@ -254,12 +252,70 @@ col.activitiesCol {
 	width: 12%
 }
 
-aside#empID h2 {
+div#container h2 {
         text-shadow: rgb(121, 127, 168) -4px -6px 5px;
         font-family: Rye, Arial, serif;
 	color: red;
 	text-align: left;
         margin-left: 5%;
+}
+
+/*Employee List Style*/
+
+aside#empID {
+    float: left;
+}
+
+aside#empID ul {
+	list-style-type: none;
+	margin: 2%;
+	margin-top: 0.5%;
+	padding: 20px;
+	overflow: hidden;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	border-radius: 50px;
+	font-weight: bold;
+	font-size: 1.2em;
+	max-width: 760px;
+	min-width: 440px;
+	display: block;
+	
+}
+
+aside#empID li {
+	float: left;
+	position: relative;
+	
+
+}
+
+aside#empID li a {
+	
+	background: linear-gradient(to right, skyblue, rgb(3, 96, 150), rgb(3, 59, 92));
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+	display: block;
+	color: yellow;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+aside#empID li a.active {
+    
+	background: radial-gradient( rgb(146, 39, 36), rgb(102, 35, 33));
+	color: white;
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+}
+
+aside#empID li a:hover:not(.active) {
+	background: linear-gradient(to left, orange, rgb(181, 111, 13), rgb(123, 110, 33));
+	box-sizing: border-box;
+	border-radius: 50px;
+	color: black;
 }
 
 /* Container Style */

@@ -1,0 +1,247 @@
+@charset "utf-8";
+
+/*
+
+Original Author: Warren Moreno
+Date Created: Febuary 07th, 2020
+Version: LiveVersion0.1
+Date Last Modified: Febuary 07th, 2020
+Modified by: Warren Moreno
+Modification log: 
+Filename: employee_list.css
+
+*/
+
+@font-face{ 
+	font-family: Rye;
+	src: url('../fonts/Rye/Rye-Regular.ttf') format('truetype');
+}
+
+
+
+/* HTML Style */
+
+html {
+	background-image: url(../images/demented_logo.png);
+}
+
+
+
+
+p {
+	font-family: Rye, "Comic Sans MS", sanserif;
+	text-align: center;
+}
+
+/* Page Body Style */
+
+h1 {
+	font-family: Rye, Arial, serif;
+	text-align: center;
+	text-shadow: rgb(221, 227, 168) /*gray*/ -4px -6px 5px;
+	color: rgb(143, 21, 42);
+	outline: solid;
+	background-color: /*gray*/ rgba(128, 128, 128, 0.9);
+	padding: 15px;
+	margin: 50px 50px 50px 50px;
+	
+}
+
+
+/* Footer Style */
+
+footer {
+	text-align: center;
+	display: block;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	padding: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	margin-left: 20%;
+	margin-right: 20%;
+	color: black;
+}
+
+footer a:link {
+	color: green;
+}
+footer a:visted {
+	color: blue;
+}
+footer a:hover {
+	text-decoration: none;
+	color: white;
+}
+footer a:active {
+	color: black;
+}
+
+/*Nav Style */
+
+nav.horizontal {
+	position: relative;
+	padding-left: 50px;
+	padding-right: 50px; 
+}
+
+
+ul {
+	list-style-type: none;
+	margin: 2%;
+	margin-top: 0.5%;
+	padding: 20px;
+	overflow: hidden;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	border-radius: 50px;
+	font-weight: bold;
+	font-size: 1.2em;
+	max-width: 760px;
+	min-width: 440px;
+	display: block;
+	
+}
+
+li {
+	float: left;
+	position: relative;
+	
+
+}
+
+li a {
+	
+	background: linear-gradient(to right, skyblue, rgb(3, 96, 150), rgb(3, 59, 92));
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+	display: block;
+	color: yellow;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a.active {
+    
+	background: radial-gradient( rgb(146, 39, 36), rgb(102, 35, 33));
+	color: white;
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+}
+
+li a:hover:not(.active) {
+	background: linear-gradient(to left, orange, rgb(181, 111, 13), rgb(123, 110, 33));
+	box-sizing: border-box;
+	border-radius: 50px;
+	color: black;
+}
+
+/* Flex Layout */
+
+body {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: column nowrap;
+   flex-flow: column nowrap;
+}
+
+header, footer {
+   -webkit-flex-shrink: 0;
+   flex-shrink: 0;
+}
+
+div#container {
+   -webkit-flex: 1 0 auto;
+   flex: 1 0 auto;
+}
+
+div#container {
+	display: block;
+	
+	background-image: url(../images/creepygrunge.png);
+	border: 10px groove rgb(122, 11, 46);
+	background-position: center;
+	background-size: cover;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 20px;
+	color: white;
+}
+
+/* Audio Video Style */
+
+audio, video {
+	
+	box-shadow: rgb(51, 51, 51) 8px 8px 15px;
+	display: block;
+	margin: 10px auto;
+	width: 90%;
+}
+
+audio {
+	background-color: gray;
+	border-radius: 50%;
+	padding: 2px;
+}
+
+aside#empID h2 {
+        text-shadow: rgb(121, 127, 168) -4px -6px 5px;
+        font-family: Rye, Arial, serif;
+	color: red;
+	text-align: left;
+        margin-left: 5%;
+}
+
+/*Employee List Style*/
+ul#empList {
+	list-style-type: none;
+	margin: 2%;
+	margin-top: 0.5%;
+	padding: 20px;
+	overflow: hidden;
+	background: radial-gradient(white, rgb(106, 42, 130), rgb(43, 8, 56));
+	border-radius: 50px;
+	font-weight: bold;
+	font-size: 1.2em;
+	max-width: 760px;
+	min-width: 440px;
+	display: block;
+	
+}
+
+li{
+	float: left;
+	position: relative;
+	
+
+}
+
+li a {
+	
+	background: linear-gradient(to right, skyblue, rgb(3, 96, 150), rgb(3, 59, 92));
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+	display: block;
+	color: yellow;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a.active {
+    
+	background: radial-gradient( rgb(146, 39, 36), rgb(102, 35, 33));
+	color: white;
+	box-sizing: border-box;
+	border-radius: 50px;
+	
+}
+
+li a:hover:not(.active) {
+	background: linear-gradient(to left, orange, rgb(181, 111, 13), rgb(123, 110, 33));
+	box-sizing: border-box;
+	border-radius: 50px;
+	color: black;
+}
