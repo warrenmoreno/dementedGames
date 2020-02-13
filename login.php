@@ -86,7 +86,7 @@ Filename: login.php
 	<!--contact number-->
 	<footer>
 		Call <a href="tel:+12086250197">(208) 625-0197</a> for any questions about upcoming events,
-		or check us out on Facebook or Twitich.<br /><br />
+		or check us out on Facebook or Twitch.<br /><br />
 			
 		<a href="https://twitch.tv/" target="_blank">
 			<img src="images/iconmonstr-twitch-3-64.png" alt="social icon for GitHub"></a>

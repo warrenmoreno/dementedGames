@@ -11,6 +11,8 @@ Filename: feedback_sent.php
 -->
 <?php
     require('./model/database.php');
+    $error_message = NULL;
+    
     $vistorName = filter_input(INPUT_POST, 'gamerName');
     $vistorEmail = filter_input(INPUT_POST, 'gamerEmail');
     $vistorPhone = filter_input(INPUT_POST, 'gamerPhone');
@@ -30,11 +32,11 @@ Filename: feedback_sent.php
     
     /*echo "EventsListing2: " . $eventsListing;*/
     if ($vistorName == null || $vistorEmail == null) {
-        $error = "There's something wrong with you entry data. "
+        $error_message = "There's something wrong with you entry data. "
                 . "Check all data fields and attempt again.";
         /* include('error.php'); */
-        echo "Form Data Error: " . $error; 
-        exit();
+        //echo "Form Data Error: " . $error_message; 
+        //exit();
         } else {
 //            $dsn = 'mysql:host=localhost;dbname=dementeddesign';
 //            $username = 'root';
@@ -46,12 +48,15 @@ Filename: feedback_sent.php
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
-                /* include('database_error.php'); */
-                echo "DB Error: " . $error_message; 
-                exit();
+                /* include('error.html'); */
+                //echo "DB Error: " . $error_message; 
+                //exit();
+                
             }
             
-            // Add the product to the database  
+        if (!$error_message){
+                // Add the product to the database 
+             
             $query = 'INSERT INTO vistor
                          (vistorName, vistorEmail, vistorMsg, vistorPhone, operativeRating, eventsListing, employeeID)
                       VALUES
@@ -63,12 +68,29 @@ Filename: feedback_sent.php
             $statement->bindValue(':vistorPhone', $vistorPhone);
             $statement->bindValue(':operativeRating', $operativeRating);
             $statement->bindValue(':eventsListing', $eventsListing);
-            $statement->execute();
+            //$statement->execute();
+            try {
+                $count = $statement->execute();
+            } catch (Exception $ex) {
+                $error_message = "We are experience some kind of error.<br> Please try again.";
+            }
+            
             $statement->closeCursor();
             /* echo "Fields: " . $vistorName . $vistorEmail . $vistorMsg . 
                  $vistorPhone . $operativeRating . $eventsListing;  */
             /*echo "EventsListing3: " . $eventsListing;*/
+            
+            if($count < 1 ){
+                $error_message = "We are experience some kind of error entering your data.<br> Please try again.";
+            } else {
+                $error_message = "<p>Thank you, $vistorName, for the wealth of booty, now carry on adventurer!</p>" 
+                        . "<p>A Message will be sent to $vistorEmail shortly to confirm this communique.</p>";
+            }
         }
+            
+            
+            
+    }
 ?>
 
 <!DOCTYPE html>
@@ -127,8 +149,8 @@ Filename: feedback_sent.php
 	<!-- Completion Message -->
 	<div id="complete">
 		<img src="images/treasure_chest.png" alt="" />
-		<p>Thank you, <?php echo $vistorName ?>, for the wealth of booty, now carry on adventurer!</p>
-                <p>A Message will be sent to <?php echo $vistorEmail ?> shortly to confirm this communique.</p>
+		<p><?php echo $error_message ?></p>
+                
 		
 	</div>
 	
@@ -136,7 +158,7 @@ Filename: feedback_sent.php
 	
 	<footer>
 		Call <a href="tel:+12086250197">(208) 625-0197</a> for any questions about upcoming events,
-		or check us out on Facebook or Twitich.<br /><br />
+		or check us out on Facebook or Twitch.<br /><br />
 			
 		<a href="https://twitch.tv/" target="_blank">
 			<img src="images/iconmonstr-twitch-3-64.png" alt="social icon for GitHub"></a>

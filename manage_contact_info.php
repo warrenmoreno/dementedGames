@@ -3,8 +3,9 @@
 Original Author: Warren Moreno
 Date Created: January 31, 2020
 Version: LiveVersion0.1
-Date Last Modified: February 07th, 2020
+Date Last Modified: February 13th, 2020
 Modified by: Warren Moreno
+Modification log 2-13-2020: added $employee lastName to foreach, created trycatch for errors 
 Modification log 2-7-2020: added required database.php, added required database.php, call to getDB()
 Modification log 1-31-2020: Modified PHP, added employee list, added vistor data table, removed audio
 Filename: manage_contact_info.php
@@ -18,35 +19,48 @@ Filename: manage_contact_info.php
      /*echo "Fields: " . $vistorName . $vistorEmail . $vistorPhone . 
        $vistorMsg . $operativeRating . $eventsListing;*/
     
-    if (!isset($employee_id)) {
-        $employee_id = filter_input(INPUT_GET, 'employee_id', 
-                FILTER_VALIDATE_INT);
-        if ($employee_id == NULL || $employee_id == FALSE) {
-            $employee_id = 1;
-        }
-    }
-
-//            $dsn = 'mysql:host=localhost;dbname=dementeddesign';
-//            $username = 'root';
-//            $password = 'Pa$$w0rd';
-
             try {
                 //$db = new PDO($dsn, $username, $password);
                 $db = Database::getDB(); //function 1
             } catch (PDOException $e) {
+                include('./database_error.php');
                 $error_message = $e->getMessage();
-                /* include('database_error.php'); */
                 echo "DB Error: " . $error_message; 
                 exit();
             }
+            
+            if (!isset($employee_id)) {
+                $employee_id = filter_input(INPUT_GET, 'employee_id', 
+                        FILTER_VALIDATE_INT);
+                if ($employee_id == NULL || $employee_id == FALSE) {
+                    $employee_id = 1;
+                }
+            } 
+            
+            
+            try { 
+                $employees = getEmployee();
+                $vistor = getVisitor($employee_id);
+            } catch (Throwable $e) {
+                $error_message = "There was an issue gathering data. Please try again later.";
+            }
+            
+    
+//            $dsn = 'mysql:host=localhost;dbname=dementeddesign';
+//            $username = 'root';
+//            $password = 'Pa$$w0rd';
+
+            
             
             // Read the employees from the database  
 //            $query = 'SELECT employeeID, firstName From employee ORDER BY employeeID';
 //            $statement = $db->prepare($query);
 //            $statement->execute();
 //            $employees = $statement;
-            $employees = getEmployee(); //function 2
-            
+//            
+//            $employees = getEmployee(); //function 2 //commented out 2/12
+//            
+//            
 //            $query2 = 'SELECT * FROM vistor '
 //                    . 'WHERE employeeID = :employeeID'
 //                    . ' ORDER BY vistorEmail;';
@@ -55,7 +69,9 @@ Filename: manage_contact_info.php
 //            $statement2->execute();
 //            $vistor = $statement2;
 //            
-            $vistor = getVisitor(); //function 3
+            //$vistor = getVisitor(); //function 3  //commented out 2/12
+            
+            
             /*echo "Fields: " . $employee_id;*/
             /* echo "Fields: " . $vistorName . $vistorEmail . $vistorMsg . 
                  $vistorPhone . $operativeRating . $eventsListing;  */
@@ -116,7 +132,7 @@ Filename: manage_contact_info.php
             <ul id="empID2">
                 <?php foreach ($employees as $employee) : ?>
                 <li><a href="manage_contact_info.php?employee_id=<?php echo $employee['employeeID']; ?>">
-                        <?php echo $employee['firstName']; ?>
+                        <?php echo $employee['firstName'] . ' ' . $employee['lastName'] ; ?>
                     </a>
                 </li>
                 <?php endforeach; ?>
@@ -162,7 +178,7 @@ Filename: manage_contact_info.php
 	
 	<footer>
 		Call <a href="tel:+12086250197">(208) 625-0197</a> for any questions about upcoming events,
-		or check us out on Facebook or Twitich.<br /><br />
+		or check us out on Facebook or Twitch.<br /><br />
 			
 		<a href="https://twitch.tv/" target="_blank">
 			<img src="images/iconmonstr-twitch-3-64.png" alt="social icon for GitHub"></a>
